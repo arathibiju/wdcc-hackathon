@@ -1,0 +1,20 @@
+{
+    "name": "Productivity Redirect",
+    "description": "The best productivity extension on the market aimed at UoA students",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://canvas.auckland.ac.nz/*"],
+            "exclude_matches": ["https://canvas.auckland.ac.nz/"], 
+            "js": ["contentScript.js"]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "scripting"
+    ]
+}
