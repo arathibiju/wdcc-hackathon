@@ -1,5 +1,6 @@
 import './App.css';
-import postsList from './post.js';
+import postsList from './RedditPost.js';
+import InstgramPosts from './Igposts';
 
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
               </div>
                 
               <div className="posts">
+
                 <h1>Instagram</h1>
-              <div>{postsList()}</div>
+              <div>{InstgramPosts()}</div>
               </div>
 
               <div className="posts">
