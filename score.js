@@ -12,7 +12,10 @@ class Score extends React.Component {
         this.state = {endTime: Date(), currentScore: 0 };
         document.addEventListener("visibilitychange", function() {
             if(document.visibilityState == "hidden") {
-                //if()
+                if(this.state.currentScore >= 30) {
+                    this.overallScore += this.state.currentScore;
+                    //Update file containing overall score info for user
+                }
                 this.setState({
                     currentScore: 0,
                     endTime: this.startTime,
@@ -40,7 +43,7 @@ class Score extends React.Component {
     calculateTime() {
         this.setState({
             endTime: Date(),
-            currentScore: endTime - this.startTime,
+            currentScore: (endTime - this.startTime) * 1000,
         });
     }
 
