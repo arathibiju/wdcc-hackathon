@@ -1,16 +1,21 @@
 .App {
   text-align: center;
-  background-color: #00457c;
+  background-color: cornflowerblue;
+  /*background-color: #00457c;*/
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .App-header {
+  display: flex;
+  flex-direction: row;
   text-align: start;
   font-size: calc(10px + 2vmin);
   padding-left: 3%;
   color: white;
+  justify-content: space-between;
+  width: 90%;
 }
 
 .App-link {
@@ -37,9 +42,14 @@
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 30px;
+  font-family: sans-serif;
 }
 
+.header{
+  
+  
+}
 .data > div {
 
 
@@ -55,6 +65,3 @@ h1 {
 
 }
 
-footer {
-  padding-left: 5%;
-}
