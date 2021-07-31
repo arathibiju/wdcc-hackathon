@@ -4,14 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
-
 }
 
 .App-header {
-  padding: 1%;
   text-align: start;
   font-size: calc(10px + 2vmin);
+  padding-left: 3%;
   color: white;
 }
 
@@ -28,22 +26,35 @@
   }
 }
 
-.flex-row {
+.data {
+  width: 100%;
   display: flex;
   flex-direction: row;
   color: white;
-  
+  justify-content: space-around;
+  padding-left: 2%;
 }
 
-.flex-row > div {
+h1 {
+  font-size: 20px;
+}
+
+.data > div {
   width: 100px;
   text-align: center;
-  background-color: black;
+
 }
 
-.flex-column {
+.posts {
   display: flex;
   flex-direction: column;
-  background-color: cadetblue;
   margin: 10px;
+}
+
+.posts > div {
+  background-color: cadetblue;
+}
+
+footer {
+  padding-left: 5%;
 }
