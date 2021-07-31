@@ -37,6 +37,10 @@ class Score extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.timerID);
+        if(this.state.currentScore >= 30) {
+            this.overallScore += this.state.currentScore;
+            //Should make function that updates the overallScore and writes to file etc
+        }
     }
     //React context to create singleton or use local storage - better to use singleton
     
