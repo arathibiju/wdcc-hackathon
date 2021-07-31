@@ -1,7 +1,6 @@
 import './App.css';
-import ReactDOM from 'react-dom';
+import postsList from './post.js';
 
-// ReactDOM.render(reddit_posts_list, document.getElementById('root'));
 
 function App() {
 
@@ -17,7 +16,7 @@ function App() {
               <div className="flex-column">
                 reddit
                 <div>
-                  {reddit_posts_list}
+                  {postsList()}
                 </div>
               </div>
                 
