@@ -1,5 +1,9 @@
+import { React,  useState } from "react";
 
-export default function postsList(){
+const PostsList = () => {
+
+    const [links, setLinks] = useState([]);
+
     const reddit_posts = ["https://www.reddit.com/r/AskReddit/comments/ouuxfz/people_no_longer_bound_by_their_nda_what_can_you/", 
     "https://www.reddit.com/r/IdiotsInCars/comments/ouzsuh/police_blocked_off_the_road_for_a_fatal_crash/", 
     "https://www.reddit.com/r/nrl/comments/ouxpfj/brisbane_in_lockdown_and_the_nrl_in_crisis/",
@@ -14,16 +18,48 @@ export default function postsList(){
     "https://www.reddit.com/r/Minecraft/comments/ouyhob/are_anybody_elses_bees_multiplying_since_117/",
 "https://www.reddit.com/r/olympics/comments/ouupzk/olympics_day_eight_megathread_saturday_july_31/",
 "https://www.reddit.com/r/dadjokes/comments/ouy3jh/if_you_cant_say_it_to_your_5_yr_old_kid_its_not_a/"  ];
+
+        fetch('https://www.reddit.com/r/all/hot.json')
+        .then(function(res) {
+        return res.json();   // Convert the data into JSON
+        })
+        .then(function(data) {
+        //console.log(data);   // Logs the data to the console
+        const newLinks = data.data.children.map(item => `https://www.redditmedia.com${item.data.permalink}?ref_source=embed&amp;ref=share&amp;embed=true`).slice(0, 5);
+        newLinks.forEach(link => console.log(`https://www.reddit.com${link}`))
+        // setLink(`https://www.redditmedia.com${newLinks[0]}?ref_source=embed&amp;ref=share&amp;embed=true`);
+        setLinks(newLinks);
+        })
+        .catch(function(err) {
+        console.log(err);   // Log error if any
+        });
+
+
+   
     
-    const index = Math.floor(Math.random() * reddit_posts.length);
-    Math.floor(Math.random() * (reddit_posts.length - 1) + 1);
-    //const posttodisp = reddit_posts[index];
+
+
+    const a = reddit_posts.map((url) => {
+        const index = url.indexOf("reddit") + 6;
+        return `${url.substring(0, index)}media${url.substring(index)}?ref_source=embed&amp;ref=share&amp;embed=true`;
+    });
+
+    const postnum =Math.floor(Math.random() * (a.length - 1) + 1);
+    let posttodisp = a[postnum];
     //posttodisp = posttodisp + "?ref_source=embed&amp;ref=share&amp;embed=true"
-
-
+    
 
 
     return(
-        <iframe id="reddit-embed" src="https://www.redditmedia.com/r/cute/comments/ouy5s1/my_lil_pep/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" scrolling="no"></iframe>
+        <div>
+            {
+            links === ''
+            ? 'loading links'
+            : links.map(link => <iframe id="reddit-embed" src={link} sandbox="allow-scripts allow-same-origin allow-popups" scrolling="yes"></iframe>)
+            }
+            </div>
+        
     )
 };
+
+export default PostsList;
