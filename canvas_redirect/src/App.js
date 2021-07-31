@@ -23,7 +23,7 @@ function App() {
 
               <div className="posts">
                 <h1>Twitter</h1>
-              <div>{postsList()}</div>
+              <div><iframe id="reddit-embed" src="https://www.redditmedia.com/r/cute/comments/ouy5s1/my_lil_pep/?ref_source=embed&amp;ref=share&amp;embed=true" sandbox="allow-scripts allow-same-origin allow-popups" scrolling="no" width="640" height="531"></iframe></div>
               </div>
         </div>
         
