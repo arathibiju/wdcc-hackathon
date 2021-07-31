@@ -6,11 +6,11 @@ class Score extends React.Component {
         super(props);
         this.minProcrastinateTime = 30000; //30000 milliseconds = 30 seconds 
         this.timeDifference = 0;
-        this.startTime = Date();
+        this.startTime = Date.now();
         this.overallScore = 0; //Should read from file - from extension?
         //Only have start and end time based on while the user is on the page - therefore if they navigate off their score will be reset
-        this.state = {endTime: Date(), currentScore: 0 };
-        document.addEventListener("visibilitychange", function() {
+        this.state = {endTime: Date.now(), currentScore: 0 };
+        document.addEventListener("visibilitychange", () => {
             if(document.visibilityState == "hidden") {
                 if(this.state.currentScore >= 30) {
                     this.overallScore += this.state.currentScore;
@@ -22,7 +22,7 @@ class Score extends React.Component {
                 });
             }
             else if(document.visibilityState == "visible") {
-                this.startTime = Date();
+                this.startTime = Date.now();
             }
 
         });
@@ -45,9 +45,10 @@ class Score extends React.Component {
     //React context to create singleton or use local storage - better to use singleton
     
     calculateTime() {
+        console.log("Calculating new score");
         this.setState({
-            endTime: Date(),
-            currentScore: (endTime - this.startTime) * 1000,
+            endTime: Date.now(),
+            currentScore: Math.trunc((this.state.endTime - this.startTime) / 1000),
         });
     }
 
@@ -59,11 +60,6 @@ class Score extends React.Component {
         )
     }
 
-    
-    //Time tracking
-
-    //Score calculation
-
-    //Return data
-
 }
+
+export default Score;
