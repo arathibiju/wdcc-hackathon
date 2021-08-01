@@ -16,9 +16,9 @@ const TwitterContainer = () => {
         <a
           className="twitter-timeline"
           data-theme="dark"
-          data-tweet-limit="100"
+          data-tweet-limit="5"
           data-chrome="noheader nofooter"
-          href="https://twitter.com/ThomasVenditti/lists/new-zealand1?ref_src=twsrc%5Etfw"
+          href="https://twitter.com/BuzzFeedVideo?ref_src=twsrc%5Etfw"
         >
   
         </a>

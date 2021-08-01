@@ -1,14 +1,14 @@
 import { React,  useState, useEffect } from "react";
 import LazyLoad from 'react-lazyload';
 
-const PostsList = () => {
+const PostsList2 = () => {
 
     const [links, setLinks] = useState([]);
     const [loaded, setLoaded] = useState(true);
 
     useEffect(() => {  
         console.log('loading');
-        fetch('https://www.reddit.com/r/all/hot.json')
+        fetch('https://www.reddit.com/r/softwaregore/hot.json')
         .then(function(res) {
         return res.json();   // Convert the data into JSON
         })
@@ -51,4 +51,4 @@ const PostsList = () => {
     )
 };
 
-export default PostsList;
+export default PostsList2;
