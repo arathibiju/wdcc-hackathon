@@ -18,7 +18,7 @@ const TwitterContainer = () => {
           data-theme="dark"
           data-tweet-limit="5"
           data-chrome="noheader nofooter"
-          href="https://twitter.com/HeyMarkKop"
+          href="https://twitter.com/ThomasVenditti/lists/new-zealand1?ref_src=twsrc%5Etfw"
         >
   
         </a>
