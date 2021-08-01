@@ -1,14 +1,15 @@
 import './App.css';
 import PostsList from './RedditPost.js';
 import TwitterContainer from './TwitterPosts';
+import Score from './score';
 
-function App() {
+function App() { 
   return (
       <div className="App">
 
         <header className="App-header">
           <p className="title">Sorry, Canvas can't be accessed right now</p>  
-          <p className="score">score</p>
+          <p className="score">Your current score is: <Score/></p>
         </header>
 
         <div className="data">
