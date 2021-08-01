@@ -14,12 +14,12 @@ function App() {
         <div className="data">
               <div className="posts">
                 <div><h1>Reddit</h1></div>
-                  <div>{PostsList()}</div>
+                  <div className="redditposts">{PostsList()}</div>
               </div>
                 
               <div className="posts">
                 <h1>Buzzfeed</h1>
-              {/* <div>{PostsList()}</div> */}
+              <div>{PostsList()}</div>
               
               </div>
 
