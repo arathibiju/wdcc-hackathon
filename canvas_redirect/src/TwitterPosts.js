@@ -8,8 +8,8 @@ const TwitterContainer = () => {
       const anchor = document.createElement("a");
       anchor.setAttribute("class", "twitter-timeline");
       anchor.setAttribute("data-theme", "dark");
-      anchor.setAttribute("data-tweet-limit", "10");
-      anchor.setAttribute("data-chrome", "noheader nofooter noborders");
+      anchor.setAttribute("data-tweet-limit", "5");
+      anchor.setAttribute("data-chrome", "header footer borders");
       anchor.setAttribute("href", "https://twitter.com/HeyMarkKop");
       document.getElementsByClassName("twitter-embed")[0].appendChild(anchor);
   
