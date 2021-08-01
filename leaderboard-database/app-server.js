@@ -26,22 +26,19 @@ const insertDocuments = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('leaderboard');
     // Insert some documents
-    let userId = 1;
-    let userOverallScore = 1;
-    let userSessionScore
-    let userData = 
+    const userData = new UserData(1, 1, 1);
     collection.insertMany([
-      {userID : 1}, {overallScore : 1}, {sessionScore : 1}
+      userData
     ], function(err, result) {
       assert.equal(err, null);
       //assert.equal(3, result.n);
       //assert.equal(3, result.ops.length);
-      console.log("Inserted 3 documents into the collection");
+      console.log("Inserted user data into the collection");
       callback(result);
     });
 }
 
-class userData {
+class UserData {
     constructor(userId, userSessionScore, userOverallScore) {
         this.Id = userId;
         this.SessionScore = userSessionScore;
