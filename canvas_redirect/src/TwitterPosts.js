@@ -17,10 +17,10 @@ const TwitterContainer = () => {
           className="twitter-timeline"
           data-theme="dark"
           data-tweet-limit="5"
-          data-chrome="noheader nofooter noborders"
+          data-chrome="noheader nofooter"
           href="https://twitter.com/HeyMarkKop"
         >
-          Tweets by HeyMarkKop
+  
         </a>
       </div>
     </section>
