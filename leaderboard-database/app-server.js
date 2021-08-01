@@ -19,13 +19,17 @@ client.connect(function(err) {
   /*insertDocuments(db, function() {
     client.close();
   });*/
-  findDocuments(db, function() {
+  var userId = 1;
+  findUser(db, function() {
       client.close();
-  });
+  }, userId);
+  updateUser(db,function() {
+      client.close();
+  }, userId);
   //client.close();
 });
 
-const insertDocuments = function(db, callback) {
+const insertUser = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('leaderboard');
     // Insert some documents
@@ -41,11 +45,14 @@ const insertDocuments = function(db, callback) {
     });
 }
 
-const findDocuments = function(db, callback, userId) {
+async function findUser(db, userId) {
+    console.log("Hello from findUser");
     // Get the documents collection
     const collection = db.collection('leaderboard');
     // Find some documents
-    collection.find({'userId': userId}).toArray(function(err, docs) {
+    var userData = await collection.find({'userId' : userId}).toArray();
+    console.log(userData);
+    /*collection.find({'userId': userId}).toArray(function(err, docs) {
         userData = docs[0];
       assert.equal(err, null);
       //console.log(docs[0]);
@@ -54,10 +61,27 @@ const findDocuments = function(db, callback, userId) {
       console.log("Found the following records");
       //console.log(docs[0].Id);
       console.log(`User Id: ${userData.Id} \nSession Score: ${docs[0].SessionScore} \nOverall Score: ${docs[0].OverallScore}` );
-      callback(docs);
-    });
+      //return userData;
+      //callback(docs);
+      console.log("User Data is: " + userData);
+    });*/
+    return userData;
   }
 
+const updateUser = function(db, callback, userId) {
+    const collection = db.collection('leaderboard');
+    var userData = findUser(db, callback, userId);
+    console.log(userData);
+    var newOverallScore = userData.OverallScore + currentSessionScore;
+    collection.updateOne(
+        {Id: userId},
+        {SessionScore : currentSessionScore},
+        {OverallScore : newOverallScore},
+    ).then(function(result) {
+        console.log(result);
+    });
+    console.log("Attempted to update user");
+}
 class UserData {
     constructor(userId, userSessionScore, userOverallScore) {
         this.Id = userId;
