@@ -1,32 +1,31 @@
 import './App.css';
-import postsList from './RedditPost.js';
-import InstgramPosts from './Igposts';
-
+import PostsList from './RedditPost.js';
+import TwitterContainer from './TwitterPosts';
 
 function App() {
   return (
       <div className="App">
 
         <header className="App-header">
-          <p>Sorry, Canvas can't be accessed right now</p>  
-          <p>score</p>
+          <p className="title">Sorry, Canvas can't be accessed right now</p>  
+          <p className="score">score</p>
         </header>
 
         <div className="data">
               <div className="posts">
-                <h1>Reddit</h1>
-                <div>{postsList()}</div>
+                <div><h1>Reddit</h1></div>
+                  <div>{PostsList()}</div>
               </div>
                 
               <div className="posts">
-
-                <h1>Instagram</h1>
-              <div>{InstgramPosts()}</div>
+                <h1>Buzzfeed</h1>
+              {/* <div>{PostsList()}</div> */}
+              
               </div>
 
               <div className="posts">
                 <h1>Twitter</h1>
-              <div>{postsList()}</div>
+              <div className="tweets">{TwitterContainer()}</div>
               </div>
         </div>
         
